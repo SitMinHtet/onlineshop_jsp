@@ -24,26 +24,26 @@
 			Statement stmt = con.createStatement();
 			
 			
-			ResultSet rs = stmt.executeQuery("select * from users where email='"+email+"' password='"+password+"'");
+			ResultSet rs = stmt.executeQuery("select * from users where email= '"+email+"' and password= '"+password+"'");
 			
 			while(rs.next()){
 				
 				x = 1;
 				session.setAttribute("email", email);
+				System.out.println("AA");
 				response.sendRedirect("home.jsp");
 			}
 			
 			if(x == 0){
-				response.sendRedirect("signup.jsp?msg=notexist");
+				response.sendRedirect("login.jsp?msg=notexist");
 			}
 			
-			response.sendRedirect("signup.jsp?msg=invalid");
-			System.out.print("NOT SUCC ?");
+			System.out.print("login?");
 			
 		}catch(Exception e){
 			
-			System.out.print("sugnupAction E "+ e);
-			response.sendRedirect("signup.jsp?msg=invalid");
+			System.out.print("Login E "+ e);
+			response.sendRedirect("login.jsp?msg=invalid");
 		}
 		
 	}
