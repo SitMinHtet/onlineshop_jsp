@@ -5,7 +5,7 @@
 
 	String id = request.getParameter("id");
 	String name = request.getParameter("name");
-	String category = request.getParameter("email");
+	String category = request.getParameter("category");
 	String price = request.getParameter("price");
 	String active = request.getParameter("active");
 
