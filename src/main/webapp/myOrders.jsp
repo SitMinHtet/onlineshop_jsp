@@ -1,3 +1,9 @@
+<%@ page import="project.ConnectionProvider"%>
+<%@ page import="java.sql.*"%>
+<%@include file="header.jsp" %>
+<%@include file="footer.jsp" %>
+<%@page errorPage="error.jsp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,9 +18,9 @@
             <th scope="col">S.No</th>
             <th scope="col">Product Name</th>
             <th scope="col">category</th>
-            <th scope="col"><i class="fa fa-inr"></i>  Price</th>
+            <th scope="col"><i class='fas fa-dollar'></i>  Price</th>
             <th scope="col">Quantity</th>
-            <th scope="col"><i class="fa fa-inr"></i> Sub Total</th>
+            <th scope="col"><i class='fas fa-dollar'></i> Sub Total</th>
             <th scope="col">Order Date</th>
              <th scope="col">Expected Delivery Date</th>
              <th scope="col">Payment Method</th>
@@ -28,9 +34,9 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><i class="fa fa-inr"></i> </td>
+            <td><i class='fas fa-dollar'></i> </td>
             <td></td>
-            <td><i class="fa fa-inr"></i> </td>
+            <td><i class='fas fa-dollar'></i> </td>
              <td></td>
               <td></td>
                <td></td>

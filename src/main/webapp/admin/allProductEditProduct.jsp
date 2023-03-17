@@ -41,13 +41,13 @@ h3
 		}
 	%>
 
-<table>
+	<table>
         <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Category</th>
-            <th scope="col">$ Price</th>
+            <th scope="col"><i class='fas fa-dollar'></i> Price</th>
             <th>Status</th>
             <th scope="col">Edit <i class='fas fa-pen-fancy'></i></th>
           </tr>
@@ -68,7 +68,7 @@ h3
             <td><%= rs.getString(1) %></td>
             <td><%= rs.getString(2) %></td>
             <td><%= rs.getString(3) %></td>
-            <td>$ <%= rs.getString(4) %></td>
+            <td><i class='fas fa-dollar'></i> <%= rs.getString(4) %></td>
             <td><%= rs.getString(5) %></td>
             <td><a href="editProduct.jsp?id=<%= rs.getString(1) %>">Edit <i class='fas fa-pen-fancy'></i></a></td>
           </tr>

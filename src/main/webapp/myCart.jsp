@@ -1,3 +1,9 @@
+<%@ page import="project.ConnectionProvider"%>
+<%@ page import="java.sql.*"%>
+<%@include file="header.jsp" %>
+<%@include file="footer.jsp" %>
+<%@page errorPage="error.jsp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,9 +30,8 @@ h3
 
 <table>
 <thead>
-
           <tr>
-            <th scope="col" style="background-color: yellow;">Total: <i class="fa fa-inr"></i> </th>
+            <th scope="col" style="background-color: yellow;">Total: <i class='fas fa-dollar'></i> </th>
             <th scope="col"><a href="">Proceed to order</a></th>
           </tr>
         </thead>
@@ -35,7 +40,7 @@ h3
           <th scope="col">S.No</th>
             <th scope="col">Product Name</th>
             <th scope="col">Category</th>
-            <th scope="col"><i class="fa fa-inr"></i> price</th>
+            <th scope="col"><i class='fas fa-dollar'></i> price</th>
             <th scope="col">Quantity</th>
             <th scope="col">Sub Total</th>
             <th scope="col">Remove <i class='fas fa-trash-alt'></i></th>
@@ -48,10 +53,10 @@ h3
            <td></td>
             <td></td>
             <td></td>
-            <td><i class="fa fa-inr"></i> </td>
+            <td><i class='fas fa-dollar'></i> </td>
             <td><a href=""><i class='fas fa-plus-circle'></i></a>  <a href=""><i class='fas fa-minus-circle'></i></a></td>
-            <td><i class="fa fa-inr"></i> </td>
-            <td><a href="">Remove <i class='fas fa-trash-alt'></i></a></td>
+            <td><i class='fas fa-dollar'></i> </td>
+            <td><a href=""> <i class='fas fa-trash-alt'></i></a></td>
           </tr>
 
         </tbody>
