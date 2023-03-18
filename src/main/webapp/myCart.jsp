@@ -47,17 +47,38 @@ h3
           </tr>
         </thead>
         <tbody>
+         <%
+	       	try{
+	       		String e = session.getAttribute("email").toString();
+	       		
+		       	Connection con = ConnectionProvider.getCon();
+				Statement stmt = con.createStatement();
+				System.out.println("AAA "+ e);
+				ResultSet rs = stmt.executeQuery("select * from cart where email='"+e+"'");
+				System.out.println("BBB");
+				
+				int index = 0;
+				while(rs.next()){
+					index = index+1;
+	       %>
       
           <tr>
 
-           <td></td>
-            <td></td>
+           <td><% out.print(index); %></td>
+            <td><%= rs.getString(2) %></td>
             <td></td>
             <td><i class='fas fa-dollar'></i> </td>
             <td><a href=""><i class='fas fa-plus-circle'></i></a>  <a href=""><i class='fas fa-minus-circle'></i></a></td>
             <td><i class='fas fa-dollar'></i> </td>
             <td><a href=""> <i class='fas fa-trash-alt'></i></a></td>
           </tr>
+          <%
+				}
+				}
+	       		catch(Exception e){
+	       			System.out.print("Cart List "+ e);
+	       		}
+	        %>
 
         </tbody>
       </table>

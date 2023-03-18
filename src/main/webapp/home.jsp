@@ -23,7 +23,7 @@ h3
 	<%
 		String msg = request.getParameter("msg");
 	
-		if("added".equals(msg)){
+		if("add".equals(msg)){
 			
 	%>
 		<h3 class="alert">Product added successfully!</h3>
@@ -44,7 +44,7 @@ h3
 		if("invalid".equals(msg)){
 			
 	%>
-		<h3 class="alert">Password change successfully!</h3>
+		<h3 class="alert">Something Wrong!</h3>
 		
 	<%
 		}
