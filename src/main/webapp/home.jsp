@@ -20,54 +20,80 @@ h3
 <body>
 <div style="color: white; text-align: center; font-size: 30px;">Home <i class="fa fa-institution"></i></div>
 
-<h3 class="alert">Product added successfully!</h3>
-
-<h3 class="alert">Product already exist in you cart! Quantity  increased!</h3>
-
-<h3 class="alert">Password change successfully!</h3>
-
-<table>
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
-            <th scope="col"><i class='fas fa-dollar'></i> Price</th>
-            <th scope="col">Add to cart <i class='fas fa-cart-plus'></i></th>
-          </tr>
-        </thead>
-        <tbody>
-        
-         <%
-       	try{
-       		
-	       	Connection con = ConnectionProvider.getCon();
-			Statement stmt = con.createStatement();
+	<%
+		String msg = request.getParameter("msg");
+	
+		if("added".equals(msg)){
 			
-			ResultSet rs = stmt.executeQuery("select * from products");
+	%>
+		<h3 class="alert">Product added successfully!</h3>
+	<%
+		}
+	%>
+	
+	<%
+		if("exist".equals(msg)){
 			
-			while(rs.next()){
-       %>
+	%>
+		<h3 class="alert">Product already exist in you cart! Quantity  increased!</h3>
+	<%
+		}
+	%>
 
-          <tr>
-          	<td><%= rs.getString(1) %></td>
-            <td><%= rs.getString(2) %></td>
-            <td><%= rs.getString(3) %></td>
-            <td><i class='fas fa-dollar'></i> <%= rs.getString(4) %></td>
-            <td><a href="">Add to cart <i class='fas fa-cart-plus'></i></a></td>
-          </tr>
-		<%
-			}
-			}
-       		catch(Exception e){
-       			System.out.print("Product List "+ e);
-       		}
-        %>
-        </tbody>
-      </table>
-      <br>
-      <br>
-      <br>
+	<%
+		if("invalid".equals(msg)){
+			
+	%>
+		<h3 class="alert">Password change successfully!</h3>
+		
+	<%
+		}
+	%>
+
+	<table>
+	        <thead>
+	          <tr>
+	            <th scope="col">ID</th>
+	            <th scope="col">Name</th>
+	            <th scope="col">Category</th>
+	            <th scope="col"><i class='fas fa-dollar'></i> Price</th>
+	            <th scope="col">Add to cart <i class='fas fa-cart-plus'></i></th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	        
+	         <%
+	       	try{
+	       		
+		       	Connection con = ConnectionProvider.getCon();
+				Statement stmt = con.createStatement();
+				
+				ResultSet rs = stmt.executeQuery("select * from products where active='Yes'");
+				
+				int index = 0;
+				while(rs.next()){
+					index = index+1;
+	       %>
+	
+	          <tr>
+	          	<td><% out.print(index); %></td>
+	            <td><%= rs.getString(2) %></td>
+	            <td><%= rs.getString(3) %></td>
+	            <td><i class='fas fa-dollar'></i> <%= rs.getString(4) %></td>
+	            <td><a href="addToCartAction.jsp?id=<%= rs.getString(1) %>"> <i class='fas fa-cart-plus'></i></a></td>
+	          </tr>
+			<%
+				}
+				}
+	       		catch(Exception e){
+	       			System.out.print("Product List "+ e);
+	       		}
+	        %>
+	        </tbody>
+	      </table>
+	      <br>
+	      <br>
+	      <br>
 
 </body>
 </html>

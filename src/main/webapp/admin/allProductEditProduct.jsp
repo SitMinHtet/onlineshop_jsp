@@ -62,10 +62,12 @@ h3
 			
 			ResultSet rs = stmt.executeQuery("select * from products");
 			
+			int index = 0;
 			while(rs.next()){
+				index = index+1;
        %>
           <tr>
-            <td><%= rs.getString(1) %></td>
+            <td><% out.print(index); %></td>
             <td><%= rs.getString(2) %></td>
             <td><%= rs.getString(3) %></td>
             <td><i class='fas fa-dollar'></i> <%= rs.getString(4) %></td>
